@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 package com.emo.jounralApp.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
