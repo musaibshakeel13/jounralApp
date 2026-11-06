@@ -1,42 +1,50 @@
+package com.emo.jounralApp.Entity;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 
-package com.emo.jounralApp.Service;
+@JsonPropertyOrder({"id", "title", "content"})
+@Document(collection = "jounral_entries")
+public class JounralEntry {
+    @Id
+    private String id;
+    private String title;
+    private String content;
 
-import com.emo.jounralApp.Entity.JounralEntry;
-import com.emo.jounralApp.repository.JounralEntryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+    private Date date;
 
+    public Date getDate() {
+        return date;
+    }
 
-@Component
-public class JounralEntryService {
-    @Autowired
-    private JounralEntryRepository jounralEntryRepository;
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-    public void saveEntry(JounralEntry jounralEntry){
-        jounralEntryRepository.save(jounralEntry);
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
